@@ -1,0 +1,65 @@
+<div class="modal" role="dialog" id="bookmarkModal">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" ng-click="bookmarkModal.hide()" type="button">x</button>
+        <h4 class="modal-title">Create ToDo</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+
+
+
+
+          <div class="text-align-center" ng-show="bookmarkMessage">
+            <span class="ubuntu-text">{{bookmarkMessage}}</span>
+          </div>
+          <br />
+         
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">ToDo Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="description" ng-model="bookmark.description" />
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-sm-2 control-label">Todo Descrition</label>
+              <div class="col-sm-10">
+                <input type="text" take-focus class="form-control" name="link" ng-model="bookmark.link" required />
+              </div>
+            </div>
+
+
+
+
+
+          <div>
+
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+              <button type="button" ng-click="createBookmark(bookmark);" class="btn btn-primary">Save Todo </button>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

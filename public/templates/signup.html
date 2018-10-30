@@ -1,0 +1,46 @@
+<div class="signup-panel container">
+			<div class="col-md-4 col-md-offset-4 panel panel-default">
+				<h1 align="center" class="signup-element margin-base-vertical">Signup</h1>
+          <h4 align="center" class="ubuntu-text" ng-show="signupError">{{signupError}}</h4>
+
+				<form  ng-submit="signup();" class="signup-form margin-base-vertical">
+
+					<p class="input-group">
+ 						<span class="input-group-addon"><span class="icon-user"></span></span>
+ 						<input autofocus ng-model="user.username" type="text" required class="form-control input-lg"
+						   name="username" placeholder="username" />
+ 					</p>
+
+          <p class="input-group">
+						<span class="input-group-addon"><span class="icon-envelope"></span></span>
+						<input ng-model="user.email" type="email" required class="form-control input-lg"
+						   name="email" placeholder="email address" />
+					</p>
+
+          <p class="input-group">
+						<span class="input-group-addon"><span class="icon-key"></span></span>
+						<input ng-model="user.password"
+						   type="password" required class="form-control input-lg" name="password" placeholder="password" />
+					</p>
+
+					<p class="input-group">
+						<span class="input-group-addon"><span class="icon-key"></span></span>
+						<input ng-model="user.confirmPassword" placeholder="confirm password"
+						   type="password" required class="form-control input-lg" name="confirmPassword" />
+					</p>
+
+          <br/>
+
+					<p class="text-center">
+						<button type="submit" class="btn btn-success btn-lg">Create Account</button>
+					</p>
+				</form>
+
+				<div class="signup-element margin-base-vertical">
+					<h5 align="center"> <a ui-sref="login">Login</a></h5>
+				</div>
+
+			 <br/>
+
+			</div>
+</div>
