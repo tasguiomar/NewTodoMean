@@ -4,12 +4,11 @@ var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 require('dotenv').config()
 
-//You can either pass the DB URI as String or set it as an environment variable
 
+//*************************.env******************** */
 //var dbURI = 'mongodb://localhost/linkository';
-
 var dbURI =process.env.dbURI;
-
+//********************************************* */
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function () {
