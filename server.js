@@ -4,11 +4,9 @@ var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var db = require('./models/db.js');
-
 var user = require('./routes/user.js');
 var bookmark = require('./routes/bookmark.js');
-
-var jwtSecret = 'zMQ8NjMl3GLdLfJzc7B4dw09MJ3Y6cYdcheDFOt5oMJvddjYhBi14dygiICpFDC7pJxydff2s3mXh7hHcHhmjYUkZ13XlpNmjhIZ';
+var jwtSecret = 'TVmTDEOTrsdgdFuwkqYnd7gO0n3hGe2ArmwxetO1Ut6FaSZafOYP0Y3dE1eHea03KWq16dxV3CM7Q1iAJ8g9bhVWjVaZ78zuXw6S';
 
 app.use(bodyParser.json());
 app.use(express.static('public'));

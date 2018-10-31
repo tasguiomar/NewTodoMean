@@ -110,19 +110,6 @@ appService.service('BookmarkService', function ($http, CONSTANT, Storage) {
 });
 
 
-appService.service('TagService', function ($http, CONSTANT, Storage) {
-  this.getTags = function () {
-    return $http.get('/tags?created_by=' + Storage.getUsername());
-  };
-
-  this.createTag = function (tag) {
-    return $http.post('/tag', tag, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  };
-});
 
 appService.service('UserService', function ($http, CONSTANT, Storage) {
 
