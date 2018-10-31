@@ -1,32 +1,33 @@
-<div class="modal" role="dialog" id="deleteBookmarkModal" >
+<div class="modal" role="dialog" id="deleteBookmarkModal">
 
-   <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-           <button class="close" ng-click="deleteBookmarkModal.hide()" type="button">x</button>
-           <h4 class="modal-title">Delete ToDo</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-horizontal">
-             <div class="delete-bookmark">
-             <p><span class="delete-bookmark-heading">ToDo</span><br/>
-               {{bookmarkToDelete.description}}
-             </p>
-             <p><span class="delete-bookmark-heading"> Description </span><br/>
-               {{bookmarkToDelete.link}}
-             </p>
-
-           </div>
-          </form>
-        </div>
-
-        <div class="modal-footer">
-               <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
-               <button type="button" ng-click="deleteBookmark(bookmarkToDelete._id);"
-                   class="btn btn-primary">Delete ToDo </button >
-        </div>
-
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" ng-click="deleteBookmarkModal.hide()" type="button">x</button>
+        <h4 class="modal-title">Delete ToDo</h4>
       </div>
+
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="delete-bookmark">
+            <p><span class="delete-bookmark-heading">ToDo</span><br />
+              {{bookmarkToDelete.description}}
+            </p>
+            <p><span class="delete-bookmark-heading"> Description </span><br />
+              {{bookmarkToDelete.link}}
+            </p>
+
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+        <button type="button" ng-click="deleteBookmark(bookmarkToDelete._id);" class="btn btn-primary">Delete ToDo
+        </button>
+      </div>
+
     </div>
+  </div>
 
 </div>

@@ -28,10 +28,9 @@ appControllers.controller('BookmarkController', function (BookmarkService, TagSe
     BookmarkService.createBookmark(post_body)
       .then(function (response) {
 
-          setTimeout(function () {
-            $scope.bookmarkModal.hide();
-            $scope.showBookmarks();
-          }, 0);
+          $scope.bookmarkModal.hide();
+          $scope.showBookmarks();
+
         },
         function (error) {
           console.log("Error");
@@ -43,9 +42,7 @@ appControllers.controller('BookmarkController', function (BookmarkService, TagSe
     BookmarkService.deleteBookmark(_id)
       .then(function (response) {
         $scope.deleteBookmarkModal.hide();
-        setTimeout(function () {
-          $scope.showBookmarks();
-        }, 0);
+        $scope.showBookmarks();
       });
   }
 

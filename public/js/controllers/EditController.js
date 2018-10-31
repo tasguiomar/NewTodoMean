@@ -22,10 +22,7 @@ appControllers.controller('EditController', function (TagService, $scope, Bookma
     };
     BookmarkService.updateBookmark($stateParams.id, request_body)
       .then(function (response) {
-
-          setTimeout(function () {
-            $state.go('list');
-          }, 0);
+          $state.go('list');
         },
         function (error) {
           console.log("Error");
@@ -36,7 +33,4 @@ appControllers.controller('EditController', function (TagService, $scope, Bookma
   $scope.cancelUpdate = function () {
     $state.go('list');
   }
-
-
-
 });
