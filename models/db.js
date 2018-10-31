@@ -2,12 +2,12 @@ var chalk = require('chalk');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
-require('dotenv').config()
+//require('dotenv').config()
 
 
 //*************************.env******************** */
-//var dbURI = 'mongodb://localhost/linkository';
-var dbURI =process.env.dbURI;
+var dbURI = 'mongodb://localhost/linkository';
+//var dbURI =process.env.dbURI;
 //********************************************* */
 mongoose.connect(dbURI);
 

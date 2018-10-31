@@ -5,7 +5,6 @@ appControllers.controller('LogoutController',function(UserService,$scope,toaster
   $scope.logout=function(){
     UserService.logout();
     $state.go('index');
-    toaster.pop('success',"Yup! you are logged out");
   }
 
 });

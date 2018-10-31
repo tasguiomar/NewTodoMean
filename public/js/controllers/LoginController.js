@@ -13,6 +13,6 @@ appControllers.controller('LoginController',function(UserService,Storage,$scope,
               Storage.save('loggedIn',true);
               $state.go('list');
             },
-            function(error){ $scope.loginError="Oops! Invalid email or password";});
+            function(error){ $scope.loginError="Invalid email or password";});
     }
 });
