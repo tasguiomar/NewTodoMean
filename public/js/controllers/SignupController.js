@@ -6,7 +6,7 @@ appControllers.controller('SignupController', function (UserService, $scope, toa
     $scope.signup = function () {
         $scope.signupError = null;
         if ($scope.user.confirmPassword !== $scope.user.password) {
-            $scope.signupError = 'Opps! password did not match, type again';
+            $scope.signupError = 'Password many different';
             $scope.user.confirmPassword = "";
             return;
         }
@@ -19,7 +19,7 @@ appControllers.controller('SignupController', function (UserService, $scope, toa
             .then(function (response) {
                     $state.go('login');
             }, function (error) {
-                $scope.signupError = 'An account with same username or email already exist';
+                $scope.signupError = 'Username or email exist';
             });
     }
 });

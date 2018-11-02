@@ -17,7 +17,7 @@ appControllers.controller('LoginController', function (UserService, Storage, $sc
           $state.go('list');
         },
         function (error) {
-          $scope.loginError = "Oops! Invalid email or password";
+          $scope.loginError = "Invalid email or password";
         });
   }
 });

@@ -10,7 +10,7 @@ exports.signup = function (req, res) {
 
   newuser.save(function (err, savedUser) {
     if (err) {
-      res.status(400).send('An account with same username or email already exist');
+      res.status(400).send('Username or email exist');
     } else {
       res.status(201).send({
         "username": savedUser.username

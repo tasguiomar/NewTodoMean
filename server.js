@@ -49,5 +49,5 @@ app.delete('/bookmark/:id', bookmark.deleteBookmark);
 /* variavel configuração no .env  */
 var port = process.env.PORT;
 app.listen(port, function (req, res) {
-    console.log("Catch the action at http://localhost:" + port);
+    console.log("Open http://localhost:" + port);
 });

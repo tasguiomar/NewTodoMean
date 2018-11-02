@@ -1,11 +1,11 @@
 {
-  "name": "linko",
-  "description": "Dont lose your bookmarks again",
+  "name": "ToDo",
+  "description": "My ToDo",
   "main": "server.js",
   "authors": [
-    "Mahtab Alam"
+    "tasguiomar"
   ],
-  "license": "MIT",
+  "license": "",
   "moduleType": [],
   "homepage": "",
   "ignore": [

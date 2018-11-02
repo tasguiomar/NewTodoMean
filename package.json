@@ -1,13 +1,13 @@
 {
-  "name": "linko",
+  "name": "ToDo",
   "version": "1.0.0",
-  "description": "Dont lose your bookmarks again",
+  "description": " ",
   "main": "server.js",
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
   },
-  "author": "Mahtab Alam",
-  "license": "MIT",
+  "author": "tasguiomar",
+  "license": "",
   "dependencies": {
     "bcrypt": "^1.0.1",
     "body-parser": "^1.15.2",

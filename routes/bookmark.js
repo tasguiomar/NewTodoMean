@@ -17,9 +17,9 @@ exports.addBookmark = function (req, res) {
 
   newBookmark.save(function (err, savedBookmark) {
     if (err) {
-      res.status(400).send('Error occurred while creating bookmark');
+      res.status(400).send('Error creating ToDo');
     } else {
-      res.status(201).send('Bookmark created successfully');
+      res.status(201).send('Erro');
     }
   });
 }
@@ -32,10 +32,10 @@ exports.updateBookmark = function (req, res) {
 
     function (err, bookmark) {
       if (err) {
-        res.status(404).send("Error Occurred");
+        res.status(404).send("Error");
       } else {
         if (!bookmark) {
-          res.status(404).send("No bookmark found with id " + id);
+          res.status(404).send("Erro Todo " + id);
         } else {
           bookmark.link = req.body.link;
           bookmark.description = req.body.description;
@@ -43,7 +43,7 @@ exports.updateBookmark = function (req, res) {
 
           bookmark.save(function (err, updatedBookmark) {
             if (err) {
-              res.status(500).send("Error Occurred while updating record");
+              res.status(500).send("Error ");
             } else {
               res.status(200).send(updatedBookmark);
             }
