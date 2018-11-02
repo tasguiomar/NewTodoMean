@@ -9,6 +9,7 @@ require('dotenv').config()
 var user = require('./routes/user.js');
 var bookmark = require('./routes/bookmark.js');
 
+/* variavel no .env */
 var jwtSecret = process.env.jwtSecret;
 
 app.use(bodyParser.json());
@@ -44,7 +45,9 @@ app.post('/bookmark', bookmark.addBookmark);
 app.put('/bookmark/:id', bookmark.updateBookmark);
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
 
+
+/* variavel configuração no .env  */
 var port = process.env.PORT;
-var server = app.listen(port, function (req, res) {
+app.listen(port, function (req, res) {
     console.log("Catch the action at http://localhost:" + port);
 });
