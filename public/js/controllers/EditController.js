@@ -15,11 +15,11 @@ appControllers.controller('EditController', function ($scope, BookmarkService, H
     $scope.editBookmarkMessage = null;
     console.log("Bookmark " + JSON.stringify(bookmark));
     if (Helpers.undefined_or_empty(bookmark.link)) {
-      $scope.editBookmarkMessage = 'Nay! looks like you forgot bookmark link';
+      $scope.editBookmarkMessage = '****';
       return;
     }
     if (Helpers.undefined_or_empty(bookmark.description)) {
-      $scope.editBookmarkMessage = 'Please fill in bookmark description';
+      $scope.editBookmarkMessage = '****';
       return;
     }
 
@@ -33,7 +33,7 @@ appControllers.controller('EditController', function ($scope, BookmarkService, H
             $state.go('list');
         },
         function (error) {
-          console.log("Error while updating bookmark");
+          console.log("Error ToDo");
         }
       );
   }

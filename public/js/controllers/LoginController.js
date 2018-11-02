@@ -3,7 +3,9 @@ var appControllers = angular.module('app.controllers', []);
 appControllers.controller('LoginController', function (UserService, Storage, $scope, $state, AuthTokenFactory) {
   $scope.user = {};
 
+
   $scope.login = function (email, password) {
+
     $scope.loginError = null;
     var request_body = {
       "email": email,
@@ -20,4 +22,8 @@ appControllers.controller('LoginController', function (UserService, Storage, $sc
           $scope.loginError = "Invalid email or password";
         });
   }
+
+
+
+
 });

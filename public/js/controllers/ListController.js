@@ -18,7 +18,6 @@ appControllers.controller('ListController', function (Storage, BookmarkService, 
     });
   }
 
-
   $scope.showDeleteBookmarkModal = function (bookmark) {
     $scope.bookmarkToDelete = bookmark;
     $scope.deleteBookmarkModal = $modal({
@@ -29,4 +28,5 @@ appControllers.controller('ListController', function (Storage, BookmarkService, 
       templateUrl: 'templates/delete_bookmark_modal.html'
     });
   }
+
 });

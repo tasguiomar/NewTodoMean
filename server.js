@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
-var db = require('./models/db.js');
+require('./models/db.js');
 require('dotenv').config()
 
 var user = require('./routes/user.js');
@@ -46,7 +46,7 @@ app.put('/bookmark/:id', bookmark.updateBookmark);
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
 
 
-/* variavel configuração no .env  */
+/* variavel configuração no .env */
 var port = process.env.PORT;
 app.listen(port, function (req, res) {
     console.log("Open http://localhost:" + port);
