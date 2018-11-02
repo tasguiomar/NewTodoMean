@@ -2,14 +2,14 @@ var chalk = require('chalk');
 var mongoose = require( 'mongoose' );
 var bcrypt=require('bcrypt');
 var SALT_WORK_FACTOR = 10;
-
+require('dotenv').config()
 //You can either pass the DB URI as String or set it as an environment variable
 
-var dbURI = 'mongodb://localhost/linkository';
+//var dbURI = 'mongodb://localhost/NewTodoMean';
 
-//var dbURI =process.env.dbURI;
-
-mongoose.connect(dbURI);
+var dbURI =process.env.dbURI;
+mongoose.Promise = global.Promise;
+mongoose.connect(dbURI, { useMongoClient: true });
 
 mongoose.connection.on('connected', function () {
   console.log(chalk.yellow('Mongoose connected to ' + dbURI));

@@ -8,7 +8,7 @@ var db = require('./models/db.js');
 var user = require('./routes/user.js');
 var bookmark = require('./routes/bookmark.js');
 
-var jwtSecret = 'kjwdjs65$ikksop0982shj';
+var jwtSecret = 'ZbrDZuidLEQih3O03VH1lneCSySPmL9NWUifHCexbuMDTztSFrTIPM8OurT82eqPcw4KuMBlUhAVSjfkUp2cx5CZoCQwBmm8fsWY';
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
