@@ -9,25 +9,32 @@
       <div class="modal-body">
         <form class="form-horizontal">
 
+
+
+
           <div class="text-align-center" ng-show="bookmarkMessage">
             <span class="ubuntu-text">{{bookmarkMessage}}</span>
           </div>
           <br />
-
+         
 
           <div class="form-group">
             <label class="col-sm-2 control-label">ToDo Name</label>
             <div class="col-sm-10">
-              <input type="text" take-focus class="form-control" name="description" ng-model="bookmark.description" />
+              <input type="text" class="form-control" name="description" ng-model="bookmark.description" />
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-sm-2 control-label">Todo Descrition</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="link" ng-model="bookmark.link" required />
+              <label class="col-sm-2 control-label">Todo Descrition</label>
+              <div class="col-sm-10">
+                <input type="text" take-focus class="form-control" name="link" ng-model="bookmark.link" required />
+              </div>
             </div>
-          </div>
+
+
+
+
 
           <div>
 
@@ -38,6 +45,18 @@
             </div>
 
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
         </form>
       </div>
     </div>

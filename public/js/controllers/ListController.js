@@ -19,7 +19,6 @@ appControllers.controller('ListController', function (Storage, BookmarkService, 
   }
 
 
-
   $scope.showDeleteBookmarkModal = function (bookmark) {
     $scope.bookmarkToDelete = bookmark;
     $scope.deleteBookmarkModal = $modal({

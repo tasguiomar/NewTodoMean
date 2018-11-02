@@ -1,4 +1,4 @@
-var appFactory = angular.module('app.factory', []);
+var appFactory=angular.module('app.factory',[]);
 
 appFactory.factory('AuthTokenFactory', function AuthTokenFactory($window) {
   'use strict';
@@ -40,12 +40,12 @@ appFactory.factory('AuthInterceptor', function AuthInterceptor(AuthTokenFactory)
 });
 
 
-appFactory.factory('focus', function ($timeout, $window) {
-  return function (id) {
-    $timeout(function () {
-      var element = $window.document.getElementById(id);
-      if (element)
-        element.focus();
-    });
-  };
-});
+appFactory.factory('focus', function($timeout, $window) {
+    return function(id) {
+      $timeout(function() {
+        var element = $window.document.getElementById(id);
+        if(element)
+          element.focus();
+      });
+    };
+  });

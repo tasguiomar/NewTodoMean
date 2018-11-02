@@ -1,49 +1,52 @@
 <div class="container">
 
 
-	<div class="col-md-8 col-md-offset-2">
-		<form class="form-horizontal" novalidate>
-			<div class="panel panel-default edit-panel">
-				<div class="panel-heading">Edit ToDo</div>
+<div class="col-md-8 col-md-offset-2">
+	<form class="form-horizontal"  novalidate>
+		<div class="panel panel-default edit-panel">
+			<div class="panel-heading">Edit ToDo</div>
 
-				<div class="panel-body">
+			   <div class="panel-body" >
+				 
 
-					<div class="text-align-center" ng-show="editBookmarkMessage">
-						<span class="ubuntu-text">{{editBookmarkMessage}}</span>
+
+				<div class="text-align-center" ng-show="editBookmarkMessage">
+					<span class="ubuntu-text">{{editBookmarkMessage}}</span>
+				</div>
+				<br />
+				
+				
+				
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Todo Name </label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" name="description" ng-model="editBookmark.description" />
 					</div>
-					<br />
-
-
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Todo Name </label>
-						<div class="col-sm-10">
-							<input type="text" take-focus class="form-control" name="description" ng-model="editBookmark.description" />
-						</div>
-					</div>
-
-					<div class="form-group">
+				</div>
+				
+				<div class="form-group">
 						<label class="col-sm-2 control-label">ToDo Description</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="link" ng-model="editBookmark.link" required />
+							<input type="text" take-focus class="form-control" name="link" ng-model="editBookmark.link" required />
 						</div>
 					</div>
-
-
-
-					<div>
-
-
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default" ng-click="cancelUpdate();">Cancel</button>
-							<button type="button" ng-click="updateBookmark(editBookmark);" class="btn btn-primary">Update ToDo </button>
-						</div>
-
+				
+				
+				
+				<div>
+				
+				
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" ng-click="cancelUpdate();">Cancel</button>
+						<button type="button" ng-click="updateBookmark(editBookmark);" class="btn btn-primary">Update ToDo </button>
 					</div>
-
+				
 				</div>
 
-			</div>
-		</form>
-	</div>
+			   </div>
+
+		</div>
+	</form >
+</div >
 
 </div>
