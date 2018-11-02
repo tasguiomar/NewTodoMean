@@ -4,11 +4,12 @@ var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 var db = require('./models/db.js');
+require('dotenv').config()
 
 var user = require('./routes/user.js');
 var bookmark = require('./routes/bookmark.js');
 
-var jwtSecret = 'ZbrDZuidLEQih3O03VH1lneCSySPmL9NWUifHCexbuMDTztSFrTIPM8OurT82eqPcw4KuMBlUhAVSjfkUp2cx5CZoCQwBmm8fsWY';
+var jwtSecret = process.env.jwtSecret;
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -43,7 +44,7 @@ app.post('/bookmark', bookmark.addBookmark);
 app.put('/bookmark/:id', bookmark.updateBookmark);
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT;
 var server = app.listen(port, function (req, res) {
     console.log("Catch the action at http://localhost:" + port);
 });

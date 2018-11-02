@@ -3,11 +3,13 @@ var mongoose = require( 'mongoose' );
 var bcrypt=require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 require('dotenv').config()
-//You can either pass the DB URI as String or set it as an environment variable
 
+/* .env */
 //var dbURI = 'mongodb://localhost/NewTodoMean';
-
 var dbURI =process.env.dbURI;
+
+
+
 mongoose.Promise = global.Promise;
 mongoose.connect(dbURI, { useMongoClient: true });
 
@@ -43,13 +45,10 @@ userSchema.pre('save', function(next) {
     var user = this;
     if (!user.isModified('password')) return next();
 
-    // generate a salt
     bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
         if (err) return next(err);
-        // hash the password using our new salt
         bcrypt.hash(user.password, salt, function(err, hash) {
             if (err) return next(err);
-            // override the cleartext password with the hashed one
             user.password = hash;
             next();
         });
