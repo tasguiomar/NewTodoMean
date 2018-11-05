@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
 require('./models/db.js');
+require('./models/modelUser');
 require('dotenv').config()
 
 var user = require('./routes/user.js');
@@ -11,6 +12,29 @@ var bookmark = require('./routes/bookmark.js');
 
 /* variavel no .env */
 var jwtSecret = process.env.jwtSecret;
+var dbURI =process.env.dbURI;
+
+
+/* ligação a base de dados  */
+var mongoose = require( 'mongoose' );
+var chalk = require('chalk');
+
+mongoose.Promise = global.Promise;
+mongoose.connect(dbURI, { useMongoClient: true });
+
+mongoose.connection.on('connected', function () {
+  console.log(chalk.yellow('Mongoose connected to ' + dbURI));
+});
+
+mongoose.connection.on('error',function (err) {
+  console.log(chalk.red('Mongoose connection error: ' + err));
+});
+
+mongoose.connection.on('disconnected', function () {
+  console.log(chalk.red('Mongoose disconnected'));
+});
+
+
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
