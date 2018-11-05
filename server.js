@@ -13,6 +13,7 @@ var bookmark = require('./routes/bookmark.js');
 /* variavel no .env */
 var jwtSecret = process.env.jwtSecret;
 var dbURI =process.env.dbURI;
+var port = process.env.PORT;
 
 
 /* ligação a base de dados  */
@@ -70,8 +71,8 @@ app.put('/bookmark/:id', bookmark.updateBookmark);
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
 
 
-/* variavel configuração no .env */
-var port = process.env.PORT;
+
+
 app.listen(port, function (req, res) {
     console.log("Open http://localhost:" + port);
 });

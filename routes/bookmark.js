@@ -72,8 +72,8 @@ exports.deleteBookmark = function (req, res) {
     function (err) {
       if (err) {
         console.log("Error : " + err);
-        return res.status(404).send("Bookmark not found");
+        return res.status(404).send("ToDo not found");
       }
-      return res.status(200).send("Bookmark deleted Successfully");
+      return res.status(200).send("ToDo deleted Successfully");
     });
 }

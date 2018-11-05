@@ -8,15 +8,16 @@ appControllers.controller('BookmarkController', function (BookmarkService, Stora
 
   $scope.createBookmark = function (bookmark) {
     $scope.bookmarkMessage = null;
-    if (Helpers.undefined_or_empty(bookmark.link)) {
-      $scope.bookmarkMessage = 'Nay! looks like you forgot bookmark link';
-      return;
-    }
-    if (Helpers.undefined_or_empty(bookmark.description)) {
-      $scope.bookmarkMessage = 'Please fill in bookmark description';
-      return;
-    }
 
+    if (Helpers.undefined_or_empty(bookmark.description)) {
+      $scope.bookmarkMessage = '**Name';
+      return;
+    }
+    if (Helpers.undefined_or_empty(bookmark.link)) {
+      $scope.bookmarkMessage = '**Description';
+      return;
+    }
+   
     var post_body = {
       "link": bookmark.link,
       "description": bookmark.description,
@@ -30,7 +31,7 @@ appControllers.controller('BookmarkController', function (BookmarkService, Stora
             $scope.showBookmarks();
         },
         function (error) {
-          console.log("Error while creating bookmark");
+          console.log("Error while creating ToDo");
         }
       );
   }

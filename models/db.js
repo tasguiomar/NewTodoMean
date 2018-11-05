@@ -1,12 +1,4 @@
-var chalk = require('chalk');
 var mongoose = require( 'mongoose' );
-var bcrypt=require('bcrypt');
-var SALT_WORK_FACTOR = 10;
-require('dotenv').config()
-
-/* .env */
-//var dbURI = 'mongodb://localhost/NewTodoMean';
-
 
 
 var bookmarkSchema = new mongoose.Schema({
