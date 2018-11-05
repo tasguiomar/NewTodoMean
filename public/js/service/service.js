@@ -161,7 +161,6 @@ appService.service('BookmarkService', function ($http, CONSTANT, Storage) {
 });
 
 
-
 appService.service('UserService', function ($http, CONSTANT, Storage) {
 
   this.signup = function (user) {
