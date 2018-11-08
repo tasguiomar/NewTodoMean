@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Bookmark = mongoose.model('Bookmark');
+var {check, validationResult} = require('express-validator/check');
 
 exports.getBookmark = function (req, res) {
   Bookmark.findOne({
@@ -10,6 +11,12 @@ exports.getBookmark = function (req, res) {
 }
 
 exports.addBookmark = function (req, res) {
+
+  const err = validationResult(req);
+  if(!err.isEmpty()){
+    return res.status(422).json({ err: err.array() });
+  }
+
   var newBookmark = new Bookmark();
   newBookmark.link = req.body.link;
   newBookmark.description = req.body.description;
@@ -26,11 +33,19 @@ exports.addBookmark = function (req, res) {
 
 exports.updateBookmark = function (req, res) {
   var id = req.params.id;
+
+  const err = validationResult(req);
+  if(!err.isEmpty()){
+    console.log("o gajo passa no express validation");
+    return res.status(422).json({ err: err.array() });
+  }
+
   Bookmark.findOne({
       "_id": id
     },
 
     function (err, bookmark) {
+
       if (err) {
         res.status(404).send("Error");
       } else {

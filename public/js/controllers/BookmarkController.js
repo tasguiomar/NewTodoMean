@@ -9,6 +9,8 @@ appControllers.controller('BookmarkController', function (BookmarkService, Stora
   $scope.createBookmark = function (bookmark) {
     $scope.bookmarkMessage = null;
 
+
+
     if (Helpers.undefined_or_empty(bookmark.description)) {
       $scope.bookmarkMessage = '**Name';
       return;

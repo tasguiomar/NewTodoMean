@@ -60,12 +60,12 @@ app.get('/', function (req, res) {
 });
 
 /*  por causa da minha estrutura da treta isto devia estar na parte dos routes e não estou a conseguir */
+/* devia estar tudo no route */
 app.post('/signup', [check('email').isEmail(), check('password').isLength({
     min: 5
 }), check('username').isLength({
     min: 5
 })], user.signup);
-
 
 
 app.post('/login', user.login, function (req, res) {
@@ -78,11 +78,22 @@ app.post('/login', user.login, function (req, res) {
     });
 });
 
-
 app.get('/bookmark/:id', bookmark.getBookmark);
+
 app.get('/bookmarks', bookmark.getBookmarks);
-app.post('/bookmark', bookmark.addBookmark);
-app.put('/bookmark/:id', bookmark.updateBookmark);
+
+app.post('/bookmark', [check('description').isLength({
+    min: 1
+}), check('link').isLength({
+    min: 1
+})], bookmark.addBookmark);
+
+app.put('/bookmark/:id', [check('description').isLength({
+    min: 1
+}), check('link').isLength({
+    min: 1
+})], bookmark.updateBookmark);
+
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
 
 
