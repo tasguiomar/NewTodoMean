@@ -61,7 +61,17 @@ app.get('/', function (req, res) {
 
 app.post('/signup', [check('username').isEmail(), check('password').isLength({
     min: 10
-})], user.signup);
+})],  user.signup);
+
+
+
+
+
+
+
+
+
+
 
 app.post('/login', [check('username').isEmail(),
     check('password').isLength({

@@ -1,8 +1,15 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var {check, validationResult} = require('express-validator/check');
 
 
 exports.signup = function (req, res) {
+ const errors = validationResult(req);
+
+ if(!errors.isEmpty()){
+   return res.status(422).json({errors:errors.array()});
+ }
+
   var newuser = new User();
   newuser.username = req.body.username;
   newuser.email = req.body.email;
