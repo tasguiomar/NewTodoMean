@@ -59,25 +59,16 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/signup', [check('username').isEmail(), check('password').isLength({
-    min: 10
-})],  user.signup);
+/*  por causa da minha estrutura da treta isto devia estar na parte dos routes e não estou a conseguir */
+app.post('/signup', [check('email').isEmail(), check('password').isLength({
+    min: 5
+}), check('username').isLength({
+    min: 5
+})], user.signup);
 
 
 
-
-
-
-
-
-
-
-
-app.post('/login', [check('username').isEmail(),
-    check('password').isLength({
-        min: 5
-    })
-], user.login, function (req, res) {
+app.post('/login', user.login, function (req, res) {
     var token = jwt.sign({
         username: req.body.username
     }, jwtSecret);

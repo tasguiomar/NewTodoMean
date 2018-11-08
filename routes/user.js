@@ -5,11 +5,9 @@ var {check, validationResult} = require('express-validator/check');
 
 exports.signup = function (req, res) {
  const errors = validationResult(req);
-
  if(!errors.isEmpty()){
-   return res.status(422).json({errors:errors.array()});
+   return res.status(422).send('User and password length min 5');
  }
-
   var newuser = new User();
   newuser.username = req.body.username;
   newuser.email = req.body.email;

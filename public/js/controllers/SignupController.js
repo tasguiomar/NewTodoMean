@@ -19,7 +19,7 @@ appControllers.controller('SignupController', function (UserService, $scope, toa
             .then(function (response) {
                     $state.go('login');
             }, function (error) {
-                $scope.signupError = 'Username or email exist';
+                $scope.signupError = 'Username or email exist.'+'User and password length min 5';
             });
     }
 });
