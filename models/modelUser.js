@@ -3,7 +3,6 @@ var bcrypt=require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
 
-
 var userSchema = new mongoose.Schema({
     username: {type: String, unique:true},
     email: {type: String, unique:true},

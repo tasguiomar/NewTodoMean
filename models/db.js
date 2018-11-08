@@ -7,5 +7,4 @@ var bookmarkSchema = new mongoose.Schema({
   created_at:{type:Date,default:Date.now},
   created_by:String
 });
-
 mongoose.model('Bookmark', bookmarkSchema,'bookmarks' );

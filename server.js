@@ -7,34 +7,41 @@ require('./models/db.js');
 require('./models/modelUser.js');
 require('dotenv').config()
 
+//var validate = require('express-validation');
+
 var user = require('./routes/user.js');
 var bookmark = require('./routes/bookmark.js');
+const {
+    check,
+    validationResult
+} = require('express-validator/check');
 
 /* variavel no .env */
 var jwtSecret = process.env.jwtSecret;
-var dbURI =process.env.dbURI;
+var dbURI = process.env.dbURI;
 var port = process.env.PORT;
 
 
 /* ligação a base de dados  */
-var mongoose = require( 'mongoose' );
+var mongoose = require('mongoose');
 var chalk = require('chalk');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(dbURI, { useMongoClient: true });
-
-mongoose.connection.on('connected', function () {
-  console.log(chalk.yellow('Mongoose connected to ' + dbURI));
+mongoose.connect(dbURI, {
+    useMongoClient: true
 });
 
-mongoose.connection.on('error',function (err) {
-  console.log(chalk.red('Mongoose connection error: ' + err));
+mongoose.connection.on('connected', function () {
+    console.log(chalk.yellow('Mongoose connected to ' + dbURI));
+});
+
+mongoose.connection.on('error', function (err) {
+    console.log(chalk.red('Mongoose connection error: ' + err));
 });
 
 mongoose.connection.on('disconnected', function () {
-  console.log(chalk.red('Mongoose disconnected'));
+    console.log(chalk.red('Mongoose disconnected'));
 });
-
 
 
 app.use(bodyParser.json());
@@ -52,8 +59,15 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/signup', user.signup);
-app.post('/login', user.login, function (req, res) {
+app.post('/signup', [check('username').isEmail(), check('password').isLength({
+    min: 10
+})], user.signup);
+
+app.post('/login', [check('username').isEmail(),
+    check('password').isLength({
+        min: 5
+    })
+], user.login, function (req, res) {
     var token = jwt.sign({
         username: req.body.username
     }, jwtSecret);
@@ -69,8 +83,6 @@ app.get('/bookmarks', bookmark.getBookmarks);
 app.post('/bookmark', bookmark.addBookmark);
 app.put('/bookmark/:id', bookmark.updateBookmark);
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
-
-
 
 
 app.listen(port, function (req, res) {

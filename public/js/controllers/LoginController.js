@@ -23,7 +23,4 @@ appControllers.controller('LoginController', function (UserService, Storage, $sc
         });
   }
 
-
-
-
 });
