@@ -83,15 +83,15 @@ app.get('/bookmark/:id', bookmark.getBookmark);
 app.get('/bookmarks', bookmark.getBookmarks);
 
 app.post('/bookmark', [check('description').isLength({
-    min: 1
+    min: 3
 }), check('link').isLength({
-    min: 1
+    min: 3
 })], bookmark.addBookmark);
 
 app.put('/bookmark/:id', [check('description').isLength({
-    min: 1
+    min: 3
 }), check('link').isLength({
-    min: 1
+    min: 3
 })], bookmark.updateBookmark);
 
 app.delete('/bookmark/:id', bookmark.deleteBookmark);
